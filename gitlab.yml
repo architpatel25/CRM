@@ -1,0 +1,20 @@
+image: node:20
+
+stages:
+  - deploy
+
+deployment:
+  stage: deploy
+  only:
+    - staging
+    - pre-production
+    - production
+  before_script:
+    - export env_file=${CI_COMMIT_REF_NAME/-/_}_env
+    - cp ${!env_file} ./.env
+    - yarn install
+    - yarn global add serverless@3.22.0
+  script:
+    - serverless config credentials --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY} --profile collabcrm
+    - serverless create_domain
+    - serverless deploy --stage ${CI_COMMIT_REF_NAME/-/_}

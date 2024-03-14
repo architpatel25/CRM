@@ -1,0 +1,52 @@
+handler: ./src/services/employee/index.handler
+events:
+  - http:
+      path: /v1/employee/{id}
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/employee/add
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/employee/add-edit
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/employee/reporting-to-dropdown
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/employee/status-list/{status}
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/employee/list
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/employee/status-counts
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+
+environment:
+  FACEBOOK_URL: ${self:custom.dotenvVars.FACEBOOK_URL, ssm:/${opt:stage}/FACEBOOK_URL}
+  TWITTER_URL: ${self:custom.dotenvVars.TWITTER_URL, ssm:/${opt:stage}/TWITTER_URL}
+  INSTAGRAM_URL: ${self:custom.dotenvVars.INSTAGRAM_URL, ssm:/${opt:stage}/INSTAGRAM_URL}
+  FRONTEND_BASE_URL: ${self:custom.dotenvVars.FRONTEND_BASE_URL, ssm:/${opt:stage}/FRONTEND_BASE_URL}
+  MEDIA_BASE_URL: ${self:custom.dotenvVars.MEDIA_BASE_URL, ssm:/${opt:stage}/MEDIA_BASE_URL}
+  S3_BUCKET_NAME: ${self:custom.dotenvVars.S3_BUCKET_NAME, ssm:/${opt:stage}/S3_BUCKET_NAME}

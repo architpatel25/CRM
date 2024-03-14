@@ -1,0 +1,8 @@
+auth: ${file(./src/services/auth/service.yml)}
+common: ${file(./src/services/common/service.yml)}
+employee: ${file(./src/services/employee/service.yml)}
+config: ${file(./src/services/config/service.yml)}
+organisation: ${file(./src/services/organisation/service.yml)}
+assets: ${file(./src/services/assets/service.yml)}
+administration: ${file(./src/services/administration/service.yml)}
+wfh: ${file(./src/services/wfh/service.yml)}

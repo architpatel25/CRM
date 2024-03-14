@@ -1,0 +1,63 @@
+service: collabcrm-backend
+frameworkVersion: '3'
+useDotenv: true
+
+provider:
+  name: aws
+  region: ap-south-1
+  profile: ${opt:profile, self:custom.profile}
+  stage: ${opt:stage, self:custom.defaultStage}
+  runtime: nodejs18.x
+  timeout: 30
+  environment:
+    ENVIRONMENT: ${self:custom.dotenvVars.ENVIRONMENT}
+    S3_REGION: ${self:custom.dotenvVars.S3_REGION}
+    S3_ACCESS_KEY: ${self:custom.dotenvVars.S3_ACCESS_KEY}
+    S3_SECRET_KEY: ${self:custom.dotenvVars.S3_SECRET_KEY}
+    S3_BUCKET_NAME: ${self:custom.dotenvVars.S3_BUCKET_NAME}
+    SENDGRID_API_KEY: ${self:custom.dotenvVars.SENDGRID_API_KEY}
+    FROM_EMAIL: ${self:custom.dotenvVars.FROM_EMAIL}
+    SUPER_ADMIN_BACKEND_BASE_URL: ${self:custom.dotenvVars.SUPER_ADMIN_BACKEND_BASE_URL}
+    INTERNAL_API_CALLING_SECRET_KEY: ${self:custom.dotenvVars.INTERNAL_API_CALLING_SECRET_KEY}
+    MEDIA_BASE_URL: ${self:custom.dotenvVars.MEDIA_BASE_URL}
+    JWT_EXPIRY: ${self:custom.dotenvVars.JWT_EXPIRY}
+    JWT_ALGORITHM: ${self:custom.dotenvVars.JWT_ALGORITHM}
+    AES_KEY: ${self:custom.dotenvVars.AES_KEY}
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-domain-manager
+  - serverless-localstack
+
+functions: ${file(./src/services/services.yml)}
+configValidationMode: warn
+
+package:
+  individually: true
+
+custom:
+  stage: ${self:custom.dotenvVars.ENVIRONMENT}
+  customDomain:
+    domainName: ${self:custom.dotenvVars.DOMAIN_NAME}
+    basePath: ''
+    stage: ${self:custom.dotenvVars.ENVIRONMENT}
+    createRoute53Record: true
+    certificateName: ${self:custom.dotenvVars.SSL_CERT_NAME}
+    endpointType: 'regional'
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+  dotenvVars: ${file(envConfig.js)}
+  defaultStage: local
+  profile: collabcrm
+  serverless-offline:
+    host: '0.0.0.0'
+    httpPort: 3000
+    lambdaPort: 3002
+    noPrependStageInUrl: true
+    hideStackFrames: true
+  localstack:
+    debug: true
+    stages:
+      - local

@@ -1,0 +1,254 @@
+handler: ./src/services/organisation/index.handler
+events:
+  - http:
+      path: /v1/organisation/business-unit/add
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/department/list
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/department/get-active-inactive
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/department/add-edit
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/department/edit-status
+      method: PUT
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/department/counts
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/department/delete/{id}
+      method: DELETE
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/designation/list
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/designation/get-active-inactive
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/designation/add-edit
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/designation/counts
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/designation/edit-status
+      method: PUT
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/designation/delete/{id}
+      method: DELETE
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/designation/{id}
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/department/{id}
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/business-unit/edit-status
+      method: PUT
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/business-unit/counts
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/business-unit/get-active-inactive
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/business-unit/list
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/holiday/add-edit
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/holiday/list
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/holiday/view-list
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/holiday/delete/{id}
+      method: DELETE
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/business-unit/add-edit
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/document/category/add-edit
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/document/category/delete/{id}
+      method: DELETE
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/document/category/list
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/document/add-edit
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/document/delete/{id}
+      method: DELETE
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/business-unit/dropdown
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/department/dropdown
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/designation/dropdown
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/business-unit/{id}
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/leave-type/add-edit
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/leave-type/list
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/leave-type/{id}
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/leave-settings/add-edit
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/leave-settings/details/{id}
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/leave-balance/add-remove
+      method: POST
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/leave-balance/listing
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/leave-transaction/details/{id}
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
+  - http:
+      path: /v1/organisation/leave-type/list/by-employee/{id}
+      method: GET
+      cors:
+        origin: '*'
+        headers: '*'
